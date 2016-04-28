@@ -1,0 +1,72 @@
+{
+	name: '大连市',
+	text: '大连市',
+	expanded: true,
+	leaf: false,
+	children: [{
+		name: '高新园区',
+		leaf: false,
+		text: '高新园区',
+		children: [{
+			name: '云帆',
+			leaf: true,
+			text: '云帆'
+		}, {
+			name: '东软',
+			leaf: true,
+			text: '东软'
+		}, {
+			name: 'IBM',
+			leaf: true,
+			text: 'IBM'
+		}]
+	}, {
+		name: '中山区',
+		leaf: false,
+		text: '中山区',
+		children: [{
+			name: '东来国旅',
+			leaf: true,
+			text: '东来国旅'
+		}, {
+			name: '日报社',
+			leaf: true,
+			text: '日报社'
+		}]
+	}, {
+		name: '甘井子区',
+		leaf: false,
+		text: '甘井子区',
+		children: [{
+			name: '大华',
+			leaf: true,
+			text: '大华'
+		}, {
+			name: '驰敖',
+			leaf: true,
+			text: '驰敖'
+		}]
+	}, {
+		name: '西岗区',
+		leaf: false,
+		text: '西岗区',
+		children: [{
+			name: '半岛晨报',
+			leaf: true,
+			text: '半岛晨报'
+		}]
+	}, {
+		name: '沙河口区',
+		leaf: false,
+		text: '沙河口区',
+		children: [{
+			name: '可口可乐',
+			leaf: true,
+			text: '可口可乐'
+		}, {
+			name: '韵达',
+			leaf: true,
+			text: '韵达'
+		}]
+	}]
+}
