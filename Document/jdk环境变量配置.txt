@@ -1,0 +1,18 @@
+CLASSPATH
+C:\Program Files\Java\jdk1.6.0_10\lib\dt.jar;C:\Program Files\Java\jdk1.6.0_10\lib\tools.jar;
+
+JAVA_HOME
+C:\Program Files\Java\jdk1.6.0_10
+
+Path
+C:\Program Files\Java\jdk1.6.0_10\bin
+
+ÊäÈëÃüÁî 1¡¢java 2¡¢javac 3¡¢java -version ÈıÌõÃüÁî
+
+
+
+
+
+
+
+
