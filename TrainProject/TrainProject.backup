@@ -1,0 +1,304 @@
+--
+-- PostgreSQL database dump
+--
+
+-- Dumped from database version 9.2.4
+-- Dumped by pg_dump version 9.2.4
+-- Started on 2016-04-13 18:11:05
+
+SET statement_timeout = 0;
+SET client_encoding = 'UTF8';
+SET standard_conforming_strings = on;
+SET check_function_bodies = false;
+SET client_min_messages = warning;
+
+--
+-- TOC entry 174 (class 3079 OID 11727)
+-- Name: plpgsql; Type: EXTENSION; Schema: -; Owner: 
+--
+
+CREATE EXTENSION IF NOT EXISTS plpgsql WITH SCHEMA pg_catalog;
+
+
+--
+-- TOC entry 1950 (class 0 OID 0)
+-- Dependencies: 174
+-- Name: EXTENSION plpgsql; Type: COMMENT; Schema: -; Owner: 
+--
+
+COMMENT ON EXTENSION plpgsql IS 'PL/pgSQL procedural language';
+
+
+SET search_path = public, pg_catalog;
+
+SET default_tablespace = '';
+
+SET default_with_oids = false;
+
+--
+-- TOC entry 171 (class 1259 OID 47184)
+-- Name: compony; Type: TABLE; Schema: public; Owner: trainproject; Tablespace: 
+--
+
+CREATE TABLE compony (
+    id integer NOT NULL,
+    compony_name character varying(50),
+    area character varying(50),
+    department character varying(50),
+    dept_group character varying(50),
+    female_staff_number integer,
+    male_staff_number integer,
+    type character varying(50)
+);
+
+
+ALTER TABLE public.compony OWNER TO trainproject;
+
+--
+-- TOC entry 170 (class 1259 OID 47182)
+-- Name: compony_id_seq; Type: SEQUENCE; Schema: public; Owner: trainproject
+--
+
+CREATE SEQUENCE compony_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.compony_id_seq OWNER TO trainproject;
+
+--
+-- TOC entry 1951 (class 0 OID 0)
+-- Dependencies: 170
+-- Name: compony_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: trainproject
+--
+
+ALTER SEQUENCE compony_id_seq OWNED BY compony.id;
+
+
+--
+-- TOC entry 169 (class 1259 OID 47176)
+-- Name: dictionary; Type: TABLE; Schema: public; Owner: trainproject; Tablespace: 
+--
+
+CREATE TABLE dictionary (
+    id integer NOT NULL,
+    code character varying(50),
+    parent_uuid character varying(50),
+    dictionary_name character varying(50),
+    dictionary_type character varying(50),
+    remark character varying(50)
+);
+
+
+ALTER TABLE public.dictionary OWNER TO trainproject;
+
+--
+-- TOC entry 168 (class 1259 OID 47174)
+-- Name: dictionary_id_seq; Type: SEQUENCE; Schema: public; Owner: trainproject
+--
+
+CREATE SEQUENCE dictionary_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.dictionary_id_seq OWNER TO trainproject;
+
+--
+-- TOC entry 1952 (class 0 OID 0)
+-- Dependencies: 168
+-- Name: dictionary_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: trainproject
+--
+
+ALTER SEQUENCE dictionary_id_seq OWNED BY dictionary.id;
+
+
+--
+-- TOC entry 173 (class 1259 OID 47192)
+-- Name: navi_tree; Type: TABLE; Schema: public; Owner: trainproject; Tablespace: 
+--
+
+CREATE TABLE navi_tree (
+    id integer NOT NULL,
+    name character varying(50),
+    belongto_node character varying(50),
+    node character varying(50)
+);
+
+
+ALTER TABLE public.navi_tree OWNER TO trainproject;
+
+--
+-- TOC entry 172 (class 1259 OID 47190)
+-- Name: navi_tree_id_seq; Type: SEQUENCE; Schema: public; Owner: trainproject
+--
+
+CREATE SEQUENCE navi_tree_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.navi_tree_id_seq OWNER TO trainproject;
+
+--
+-- TOC entry 1953 (class 0 OID 0)
+-- Dependencies: 172
+-- Name: navi_tree_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: trainproject
+--
+
+ALTER SEQUENCE navi_tree_id_seq OWNED BY navi_tree.id;
+
+
+--
+-- TOC entry 1929 (class 2604 OID 47187)
+-- Name: id; Type: DEFAULT; Schema: public; Owner: trainproject
+--
+
+ALTER TABLE ONLY compony ALTER COLUMN id SET DEFAULT nextval('compony_id_seq'::regclass);
+
+
+--
+-- TOC entry 1928 (class 2604 OID 47179)
+-- Name: id; Type: DEFAULT; Schema: public; Owner: trainproject
+--
+
+ALTER TABLE ONLY dictionary ALTER COLUMN id SET DEFAULT nextval('dictionary_id_seq'::regclass);
+
+
+--
+-- TOC entry 1930 (class 2604 OID 47195)
+-- Name: id; Type: DEFAULT; Schema: public; Owner: trainproject
+--
+
+ALTER TABLE ONLY navi_tree ALTER COLUMN id SET DEFAULT nextval('navi_tree_id_seq'::regclass);
+
+
+--
+-- TOC entry 1940 (class 0 OID 47184)
+-- Dependencies: 171
+-- Data for Name: compony; Type: TABLE DATA; Schema: public; Owner: trainproject
+--
+
+COPY compony (id, compony_name, area, department, dept_group, female_staff_number, male_staff_number, type) FROM stdin;
+1	大连云帆科技	高新园区	dept_kfb	group_kfyz	3	2	\N
+2	大连云帆科技	高新园区	dept_kfb	group_kfez	6	5	\N
+5	大连天沃科技	中山区	dept_xsb	group_xsyz	2	5	\N
+6	大连天沃科技	中山区	dept_xsb	group_xsez	4	6	\N
+4	大连天沃科技	中山区	dept_kfb	group_kfez	15	6	\N
+3	大连云帆科技	高新园区	dept_cpb	group_cpyz	8	7	\N
+\.
+
+
+--
+-- TOC entry 1954 (class 0 OID 0)
+-- Dependencies: 170
+-- Name: compony_id_seq; Type: SEQUENCE SET; Schema: public; Owner: trainproject
+--
+
+SELECT pg_catalog.setval('compony_id_seq', 6, true);
+
+
+--
+-- TOC entry 1938 (class 0 OID 47176)
+-- Dependencies: 169
+-- Data for Name: dictionary; Type: TABLE DATA; Schema: public; Owner: trainproject
+--
+
+COPY dictionary (id, code, parent_uuid, dictionary_name, dictionary_type, remark) FROM stdin;
+1	dept_kfb		开发部	dept	\N
+2	dept_cpb		产品部	dept	\N
+3	dept_xsb		销售部	dept	\N
+4	group_kfyz	dept_kfb	开发一组	group	\N
+5	group_kfez	dept_kfb	开发二组	group	\N
+6	group_cpyz	dept_cpb	产品一组	group	\N
+7	group_xsyz	dept_xsb	销售一组	group	\N
+8	group_xsez	dept_xsb	销售二组	group	\N
+\.
+
+
+--
+-- TOC entry 1955 (class 0 OID 0)
+-- Dependencies: 168
+-- Name: dictionary_id_seq; Type: SEQUENCE SET; Schema: public; Owner: trainproject
+--
+
+SELECT pg_catalog.setval('dictionary_id_seq', 8, true);
+
+
+--
+-- TOC entry 1942 (class 0 OID 47192)
+-- Dependencies: 173
+-- Data for Name: navi_tree; Type: TABLE DATA; Schema: public; Owner: trainproject
+--
+
+COPY navi_tree (id, name, belongto_node, node) FROM stdin;
+1	高新园区	\N	area_gxy
+2	中山区	\N	area_zs
+3	大连云帆科技	area_gxy	compony_yf
+4	大连天沃科技	area_zs	compony_tw
+\.
+
+
+--
+-- TOC entry 1956 (class 0 OID 0)
+-- Dependencies: 172
+-- Name: navi_tree_id_seq; Type: SEQUENCE SET; Schema: public; Owner: trainproject
+--
+
+SELECT pg_catalog.setval('navi_tree_id_seq', 4, true);
+
+
+--
+-- TOC entry 1934 (class 2606 OID 47189)
+-- Name: compony_pkey; Type: CONSTRAINT; Schema: public; Owner: trainproject; Tablespace: 
+--
+
+ALTER TABLE ONLY compony
+    ADD CONSTRAINT compony_pkey PRIMARY KEY (id);
+
+
+--
+-- TOC entry 1932 (class 2606 OID 47181)
+-- Name: dictionary_pkey; Type: CONSTRAINT; Schema: public; Owner: trainproject; Tablespace: 
+--
+
+ALTER TABLE ONLY dictionary
+    ADD CONSTRAINT dictionary_pkey PRIMARY KEY (id);
+
+
+--
+-- TOC entry 1936 (class 2606 OID 47197)
+-- Name: navi_tree_pkey; Type: CONSTRAINT; Schema: public; Owner: trainproject; Tablespace: 
+--
+
+ALTER TABLE ONLY navi_tree
+    ADD CONSTRAINT navi_tree_pkey PRIMARY KEY (id);
+
+
+--
+-- TOC entry 1949 (class 0 OID 0)
+-- Dependencies: 5
+-- Name: public; Type: ACL; Schema: -; Owner: postgres
+--
+
+REVOKE ALL ON SCHEMA public FROM PUBLIC;
+REVOKE ALL ON SCHEMA public FROM postgres;
+GRANT ALL ON SCHEMA public TO postgres;
+GRANT ALL ON SCHEMA public TO PUBLIC;
+
+
+-- Completed on 2016-04-13 18:11:06
+
+--
+-- PostgreSQL database dump complete
+--
+

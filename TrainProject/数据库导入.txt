@@ -1,0 +1,3 @@
+psql -h localhost -U trainproject -d TrainProject <  C:\TrainProject.backup
+
+新建好数据库和角色，在cmd里输入上述命令即可。记得将TrainProject.backup放在c盘

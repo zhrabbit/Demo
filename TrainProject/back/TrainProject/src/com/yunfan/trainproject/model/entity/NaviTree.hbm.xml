@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2016-3-25 10:52:13 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.yunfan.trainproject.model.entity.NaviTree" table="navi_tree" schema="public">
+        <id name="id" type="int">
+            <column name="id" />
+            <generator class="identity" />
+        </id>
+        <property name="name" type="string">
+            <column name="name" length="50" />
+        </property>
+        <property name="belongtoNode" type="string">
+            <column name="belongto_node" length="50" />
+        </property>
+        <property name="node" type="string">
+            <column name="node" length="50" />
+        </property>
+        
+        <set name="children"  lazy="true" table="navi_tree" fetch="select" inverse="true">
+   			<key column='belongto_node' property-ref="node"/>
+   			<one-to-many class="com.yunfan.trainproject.model.entity.NaviTree"/>
+  		</set>
+  		 <many-to-one name="naviTree"  class="com.yunfan.trainproject.model.entity.NaviTree" property-ref="node" insert="false" update="false">
+        	<column name="belongto_node"></column>
+        </many-to-one> 
+    </class>
+</hibernate-mapping>

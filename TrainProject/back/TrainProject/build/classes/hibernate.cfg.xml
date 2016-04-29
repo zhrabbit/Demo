@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+		"-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+		"http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+    <session-factory>
+        <property name="hibernate.connection.driver_class">org.postgresql.Driver</property>
+        <property name="hibernate.connection.password">123456</property>
+        <property name="hibernate.connection.url">jdbc:postgresql://localhost:5432/TrainProject</property>
+        <property name="hibernate.connection.username">trainproject</property>
+        <property name="hibernate.dialect">org.hibernate.dialect.PostgreSQLDialect</property>
+	    <property name="hibernate.c3p0.max_size">20</property>
+	    <property name="hibernate.c3p0.min_size">5</property>
+	    <property name="hibernate.c3p0.timeout">120</property>
+	    <property name="hibernate.c3p0.acquire_increment">2</property>
+	    <property name="hibernate.c3p0.idle_test_period">120</property>
+	    <property name="hibernate.c3p0.max_statements">100</property>
+	    <property name="hibernate.connection.provider_class">org.hibernate.connection.C3P0ConnectionProvider</property>
+	    <property name="hibernate.show_sql">false</property>
+	    <property name="connection.autocommit">false</property>
+	    <mapping resource="com/yunfan/trainproject/model/entity/Compony.hbm.xml"/>
+	    <mapping resource="com/yunfan/trainproject/model/entity/Dictionary.hbm.xml"/>
+	    <mapping resource="com/yunfan/trainproject/model/entity/NaviTree.hbm.xml"/>
+  
+    </session-factory>
+</hibernate-configuration>

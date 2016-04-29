@@ -1,0 +1,21 @@
+{
+	children: [{
+		text: "所属区域",
+		expanded: false,
+		children: [{
+			text: "高新园区",
+			expanded: false,
+			children: [{
+				text: "大连云帆科技",
+				leaf: true
+			}]
+		}, {
+			text: "中山区",
+			expanded: false,
+			children: [{
+				text: "大连天沃科技",
+				leaf: true
+			}]
+		}]
+	}]
+}

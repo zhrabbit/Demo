@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2016-3-25 10:49:59 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.yunfan.trainproject.model.entity.Dictionary" table="dictionary" schema="public">
+        <id name="id" type="int">
+            <column name="id" />
+            <generator class="identity" />
+        </id>
+        <property name="code" type="string">
+            <column name="code" length="50" />
+        </property>
+        <property name="parentUuid" type="string">
+            <column name="parent_uuid" length="50" />
+        </property>
+        <property name="dictionaryName" type="string">
+            <column name="dictionary_name" length="50" />
+        </property>
+        <property name="dictionaryType" type="string">
+            <column name="dictionary_type" length="50" />
+        </property>
+        <property name="remark" type="string">
+            <column name="remark" length="50" />
+        </property>
+    </class>
+</hibernate-mapping>

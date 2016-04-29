@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2016-3-25 10:49:59 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.yunfan.trainproject.model.entity.Compony" table="compony" schema="public">
+        <id name="id" type="int">
+            <column name="id" />
+            <generator class="identity" />
+        </id>
+        <property name="componyName" type="string">
+            <column name="compony_name" length="50" />
+        </property>
+        <property name="area" type="string">
+            <column name="area" length="50" />
+        </property>
+        <property name="department" type="string">
+            <column name="department" length="50" />
+        </property>
+        <property name="deptGroup" type="string">
+            <column name="dept_group" length="50" />
+        </property>
+        <property name="femaleStaffNumber" type="java.lang.Integer">
+            <column name="female_staff_number" />
+        </property>
+        <property name="maleStaffNumber" type="java.lang.Integer">
+            <column name="male_staff_number" />
+        </property>
+        	 
+        <many-to-one name="deptDic"  class="com.yunfan.trainproject.model.entity.Dictionary" property-ref="code" insert="false" update="false">
+        	<column name="department"></column>
+        </many-to-one> 
+        <many-to-one name="groupDic"  class="com.yunfan.trainproject.model.entity.Dictionary" property-ref="code" insert="false" update="false">
+        	<column name="dept_group"></column>
+        </many-to-one> 	 	 
+    </class>
+</hibernate-mapping>
