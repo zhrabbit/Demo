@@ -3,16 +3,22 @@
  * needed for your application, but these edits will have to be merged by
  * Sencha Cmd when upgrading.
  */
-Ext.application({
-    name: 'Demo',
+var _myConstants;
 
-    extend: 'Demo.Application',
-    
-    autoCreateViewport: 'Demo.view.main.Main'
-	
-    //-------------------------------------------------------------------------
-    // Most customizations should be made to Demo.Application. If you need to
-    // customize this file, doing so below this section reduces the likelihood
-    // of merge conflicts when upgrading to new versions of Sencha Cmd.
-    //-------------------------------------------------------------------------
+Ext.application({
+	name: 'Demo',
+
+	extend: 'Demo.Application',
+
+	requires: [
+		'Demo.*'
+	],
+
+	autoCreateViewport: 'Demo.view.main.Main'
+
+	//-------------------------------------------------------------------------
+	// Most customizations should be made to Demo.Application. If you need to
+	// customize this file, doing so below this section reduces the likelihood
+	// of merge conflicts when upgrading to new versions of Sencha Cmd.
+	//-------------------------------------------------------------------------
 });
